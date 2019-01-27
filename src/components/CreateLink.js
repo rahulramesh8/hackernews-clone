@@ -31,6 +31,7 @@ const CreateLink = props => {
         mutation={POST_MUTATION}
         variables={{ description, url }}
         onCompleted={handleMutationComplete}
+        onError={alert}
       >
         {PostMutation => <button onClick={PostMutation}>Submit</button>}
       </Mutation>

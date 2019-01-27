@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
 
-const Header = () => {
+import { AUTH_TOKEN } from "../constants";
+
+const Header = props => {
+  const authToken = localStorage.getItem(AUTH_TOKEN);
   return (
     <div className="flex pal justify-between nowrap orange">
       <div className="flex flex-fixed black">
@@ -14,6 +17,23 @@ const Header = () => {
         <Link to="/create" className="ml1 no-underline black">
           Submit
         </Link>
+      </div>
+      <div className="flex flex-fixed">
+        {authToken ? (
+          <div
+            className="ml1 pointer black"
+            onClick={() => {
+              localStorage.removeItem(AUTH_TOKEN);
+              props.history.push("/");
+            }}
+          >
+            Logout
+          </div>
+        ) : (
+          <Link to="/login" className="ml1 no-underline black">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
