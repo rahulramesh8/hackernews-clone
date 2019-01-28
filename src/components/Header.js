@@ -14,6 +14,10 @@ const Header = props => {
           New
         </Link>
         <div className="ml1">|</div>
+        <Link to="/search" className="ml1 no-underline black">
+          search
+        </Link>
+        <div className="ml1">|</div>
         <Link to="/create" className="ml1 no-underline black">
           Submit
         </Link>
