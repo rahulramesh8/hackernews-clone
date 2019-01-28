@@ -10,6 +10,7 @@ const LinkList = () => {
         if (loading) return <>Fetching</>;
         if (error) return <>Error: {error}</>;
         _subscribeToNewLinks(subscribeToMore);
+        _subscribeToNewVotes(subscribeToMore);
 
         const linksToRender = data.feed.links;
         return (
@@ -58,6 +59,12 @@ const _subscribeToNewLinks = subscribeToMore => {
   });
 };
 
+const _subscribeToNewVotes = subscribeToMore => {
+  subscribeToMore({
+    document: NEW_VOTES_SUBSCRIPTION
+  });
+};
+
 export const FEED_QUERY = gql`
   {
     feed {
@@ -97,6 +104,33 @@ const NEW_LINKS_SUBSCRIPTION = gql`
         user {
           id
         }
+      }
+    }
+  }
+`;
+
+const NEW_VOTES_SUBSCRIPTION = gql`
+  subscription {
+    newVote {
+      id
+      link {
+        id
+        url
+        description
+        createdAt
+        postedBy {
+          id
+          name
+        }
+        votes {
+          id
+          user {
+            id
+          }
+        }
+      }
+      user {
+        id
       }
     }
   }
