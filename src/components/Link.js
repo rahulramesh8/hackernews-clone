@@ -34,8 +34,8 @@ const Link = props => {
           {props.link.description} ({props.link.url})
         </div>
         <div className="f6 lh-copy gray">
-          {props.link.votes.length} votes | by
-          {props.link.postedBy ? props.link.postedBy.name : "Unknown"}
+          {props.link.votes.length} votes | by{" "}
+          {props.link.postedBy ? props.link.postedBy.name : "Unknown"}{" "}
           {timeDifferenceForDate(props.link.createdAt)}
         </div>
       </div>
