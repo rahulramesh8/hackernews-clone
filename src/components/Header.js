@@ -14,6 +14,10 @@ const Header = props => {
           New
         </Link>
         <div className="ml1">|</div>
+        <Link to="/top" className="ml1 no-underline black">
+          Top
+        </Link>
+        <div className="ml1">|</div>
         <Link to="/search" className="ml1 no-underline black">
           search
         </Link>
@@ -22,6 +26,7 @@ const Header = props => {
           Submit
         </Link>
       </div>
+
       <div className="flex flex-fixed">
         {authToken ? (
           <div
