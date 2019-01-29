@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import Header from "./Header";
@@ -7,7 +7,7 @@ import CreateLink from "./CreateLink";
 import Login from "./Login";
 import Search from "./Search";
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
       <div className="center w85">

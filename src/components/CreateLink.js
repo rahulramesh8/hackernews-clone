@@ -57,6 +57,7 @@ const CreateLink = props => {
 
 export default CreateLink;
 
+//GraphQL Mutation
 const POST_MUTATION = gql`
   mutation PostMutation($description: String!, $url: String!) {
     post(description: $description, url: $url) {
